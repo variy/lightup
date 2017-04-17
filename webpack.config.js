@@ -100,16 +100,16 @@ var webpackConfig = {
     devtool: DEBUG? "source-map": false,
     module: {
         rules: [
-        {
-                test: /\.js$/,
-                loader: 'babel-loader',
-                exclude: /node_modules/,
-                // 
-                // [, pageDefaultSetting.template],
-                // options: {
-                //     presets: ['es2015']
-                // }
-            }, 
+        // {
+        //         test: /\.js$/,
+        //         loader: 'babel-loader',
+        //         exclude: /node_modules/,
+        //         // 
+        //         // [, pageDefaultSetting.template],
+        //         // options: {
+        //         //     presets: ['es2015']
+        //         // }
+        //     }, 
         {
             test: /\.vue$/,
             loader: 'vue-loader',

@@ -15,7 +15,7 @@ if( CONFIG.debug === '1'){
     var webpack = require('webpack');
     var webpackDevMiddleware = require('webpack-dev-middleware');
     var webpackHotMiddleware = require('webpack-hot-middleware');
-    var configPath = path.join(__dirname, './build/webpack.config.js')
+    var configPath = path.join(__dirname, './webpack.config.js')
     // console.log(configPath)
 
     var config = require(configPath);
