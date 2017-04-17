@@ -27,5 +27,5 @@ module.exports = {
     debug: paramObj.debug,
     port: 8002,
     srcPath:  path.join(__dirname, './src'),
-    destPath: path.join(__dirname, './doc/')
+    destPath: path.join(__dirname, './docs/')
 };
