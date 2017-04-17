@@ -1,0 +1,12 @@
+{
+    "restartable": "rs",
+    "verbose": false,
+    "watch": [
+    ],
+    "ignore": [
+        ".git",
+        ".idea",
+        "node_modules"
+    ],
+    "ext": "js ejs"
+}

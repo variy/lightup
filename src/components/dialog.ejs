@@ -1,0 +1,9 @@
+<div class="dialog-backdrop"></div>
+<div class="dialog-content-wapper">
+    <div class="dialog-body"><%= title%></div>
+    <div class="dialog-footer">
+        <% _.each(btns, function(item){ %>
+            <button type="button" class="btn btn-<%= item.style%>"><%= item.txt%></button>
+        <% })%>
+    </div>
+</div>
