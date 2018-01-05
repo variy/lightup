@@ -15,7 +15,7 @@
 		"production": {
 			"user": "manager2",
 			"host": ["112.74.51.156"],
-			"post": "22",
+			"port": "22",
 			"repo": "git@github.com:variy/lightup.git",
 			"ref": "origin/master",
 			"path": "/www/lightup/production",
