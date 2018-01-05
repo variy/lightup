@@ -1,0 +1,29 @@
+{
+	"apps": [
+		{
+			"name": "lightup",
+			"script": "app.js",
+			"env": {
+				"COMMON_VARIAVLE": "TRUE"
+			},
+			"env_production": {
+				"NODE_ENV": "production"
+			}
+		}
+	],
+	"deploy": {
+		"production": {
+			"user": "manager2",
+			"host": ["112.74.51.156"],
+			"post": "22",
+			"repo": "git@github.com:variy/lightup.git",
+			"ref": "origin/master",
+			"path": "/www/lightup/production",
+			"ssh_options": "StrictHostKeyChecking=no",
+			"post-deploy": "pm2 startOrRestart ecosystem.json --env production",
+			"env": {
+				"NODE_ENV": "production"
+			}
+		}
+	}
+}

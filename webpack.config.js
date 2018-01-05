@@ -10,7 +10,7 @@ var CONFIG = require('./config.js');
 var pjPath = CONFIG.pj;
 var srcPath = CONFIG.srcPath;
 var destPath = CONFIG.destPath;
-var DEBUG = CONFIG.debug === '1';
+var DEBUG = CONFIG.debug;
 var PORT = CONFIG.port;
 
 var curJsDestPath = path.join(destPath, 'js');
@@ -25,13 +25,17 @@ var pageDefaultSetting = {
 }
 
 var pageList = fs.readdirSync(path.resolve(CONFIG.srcPath, './pages'));
-
+pageList = pageList.filter(function(item){
+    return item.charAt(0) !== '.';
+})
 console.log(JSON.stringify(pageList));
 
 var getEntry = function(){
     var obj = {};
     pageList.forEach(function(item){
-        obj[item] =  path.join(srcPath, 'pages', item, pageDefaultSetting.entry);
+        if(item != '.DS_Store'){
+            obj[item] =  path.join(srcPath, 'pages', item, pageDefaultSetting.entry);
+        }
     });
 
     obj.vendors = ['Zepto','Vue','underscore', 'Global'];
@@ -41,7 +45,8 @@ var getEntry = function(){
 var getHtmlPlugins = function(){
     var list = [];
 
-    pageList.forEach(function(item) {
+    for (var i = 0; i < pageList.length; i++) {
+        var item = pageList[i]
         //@chunks 这个参数告诉插件要引用entry里面的哪几个入口
         //@inject 要把script插入到标签里
         var opt = {
@@ -63,8 +68,8 @@ var getHtmlPlugins = function(){
         }
 
         list.push( new HtmlwebpackPlugin(opt) );
-    });
-
+        
+    };
     return list;          
 }
 
